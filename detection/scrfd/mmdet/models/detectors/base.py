@@ -336,18 +336,27 @@ class BaseDetector(nn.Module, metaclass=ABCMeta):
         if out_file is not None:
             show = False
         # draw bounding boxes
-        mmcv.imshow_det_bboxes(
+        # mmcv.imshow_det_bboxes(
+        #     img,
+        #     bboxes,
+        #     labels,
+        #     class_names=self.CLASSES,
+        #     score_thr=score_thr,
+        #     bbox_color=bbox_color,
+        #     text_color=text_color,
+        #     thickness=thickness,
+        #     font_scale=font_scale,
+        #     win_name=win_name,
+        #     show=show,
+        #     wait_time=wait_time,
+        #     out_file=out_file)
+        mmcv.imshow_bboxes(
             img,
             bboxes,
-            labels,
-            class_names=self.CLASSES,
-            score_thr=score_thr,
-            bbox_color=bbox_color,
-            text_color=text_color,
+            colors=bbox_color,
             thickness=thickness,
-            font_scale=font_scale,
-            win_name=win_name,
             show=show,
+            win_name=win_name,
             wait_time=wait_time,
             out_file=out_file)
 
