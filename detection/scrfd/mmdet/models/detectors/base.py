@@ -11,6 +11,10 @@ from mmcv.utils import print_log
 
 from mmdet.utils import get_root_logger
 
+import cv2
+from mmcv.image import imread, imwrite
+from .color import color_val
+
 
 class BaseDetector(nn.Module, metaclass=ABCMeta):
     """Base class for detectors."""
