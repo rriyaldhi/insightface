@@ -300,7 +300,7 @@ if __name__ == '__main__':
     for img_path in img_paths:
         img = cv2.imread(img_path)
 
-        for _ in range(1):
+        for _ in range(100):
             ta = datetime.datetime.now()
             bboxes, kpss = detector.detect(img, 0.5, input_size = (640, 640))
             #bboxes, kpss = detector.detect(img, 0.5)
