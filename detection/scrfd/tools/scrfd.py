@@ -137,7 +137,11 @@ class SCRFD:
         kpss_list = []
         input_size = tuple(img.shape[0:2][::-1])
         blob = cv2.dnn.blobFromImage(img, 1.0/128, input_size, (127.5, 127.5, 127.5), swapRB=True)
+
+        ta = datetime.datetime.now()
         net_outs = self.session.run(self.output_names, {self.input_name : blob})
+        tb = datetime.datetime.now()
+        print('all cost:', (tb-ta).total_seconds()*1000)
 
         input_height = blob.shape[2]
         input_width = blob.shape[3]
@@ -209,10 +213,7 @@ class SCRFD:
         det_img = np.zeros( (input_size[1], input_size[0], 3), dtype=np.uint8 )
         det_img[:new_height, :new_width, :] = resized_img
 
-        ta = datetime.datetime.now()
         scores_list, bboxes_list, kpss_list = self.forward(det_img, thresh)
-        tb = datetime.datetime.now()
-        print('all cost:', (tb-ta).total_seconds()*1000)
 
         scores = np.vstack(scores_list)
         scores_ravel = scores.ravel()
