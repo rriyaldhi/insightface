@@ -296,7 +296,7 @@ if __name__ == '__main__':
     #detector = SCRFD(model_file='./det.onnx')
     detector = SCRFD(model_file='./det.onnx')
     detector.prepare(-1)
-    img_paths = ['tests/data/t3.jpg']
+    img_paths = ['../images/parade_1.jpg']
     for img_path in img_paths:
         img = cv2.imread(img_path)
 
