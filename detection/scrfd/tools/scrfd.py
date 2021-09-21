@@ -209,7 +209,10 @@ class SCRFD:
         det_img = np.zeros( (input_size[1], input_size[0], 3), dtype=np.uint8 )
         det_img[:new_height, :new_width, :] = resized_img
 
+        ta = datetime.datetime.now()
         scores_list, bboxes_list, kpss_list = self.forward(det_img, thresh)
+        tb = datetime.datetime.now()
+        print('all cost:', (tb-ta).total_seconds()*1000)
 
         scores = np.vstack(scores_list)
         scores_ravel = scores.ravel()
@@ -301,11 +304,11 @@ if __name__ == '__main__':
         img = cv2.imread(img_path)
 
         for _ in range(100):
-            ta = datetime.datetime.now()
+            # ta = datetime.datetime.now()
             bboxes, kpss = detector.detect(img, 0.5, input_size = (640, 640))
             #bboxes, kpss = detector.detect(img, 0.5)
-            tb = datetime.datetime.now()
-            print('all cost:', (tb-ta).total_seconds()*1000)
+            # tb = datetime.datetime.now()
+            # print('all cost:', (tb-ta).total_seconds()*1000)
         print(img_path, bboxes.shape)
         if kpss is not None:
             print(kpss.shape)
