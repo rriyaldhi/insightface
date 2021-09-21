@@ -312,8 +312,8 @@ if __name__ == '__main__':
 
         for _ in range(100):
             ta = datetime.datetime.now()
-            # bboxes, kpss = detector.detect(img, 0.5, input_size = (640, 640))
-            bboxes, kpss = detector.detect(img, 0.5)
+            bboxes, kpss = detector.detect(img, 0.5, input_size = (640, 640))
+            # bboxes, kpss = detector.detect(img, 0.5)
             tb = datetime.datetime.now()
             print('all cost:', (tb-ta).total_seconds()*1000)
         print(img_path, bboxes.shape)
