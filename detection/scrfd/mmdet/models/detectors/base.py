@@ -411,8 +411,16 @@ def imshow_det_bboxes(img,
         bbox_int = bbox.astype(np.int32)
         left_top = (bbox_int[0], bbox_int[1])
         right_bottom = (bbox_int[2], bbox_int[3])
-#         cv2.rectangle(
-#             img, left_top, right_bottom, bbox_color, thickness=thickness)
+        cv2.rectangle(
+            img, left_top, right_bottom, bbox_color, thickness=thickness)
+
+        blurred_img = cv2.GaussianBlur(img, (21, 21), 0)
+
+        mask = np.zeros((512, 512, 3), dtype=np.uint8)
+        mask = cv2.rectangle(mask, left_top, right_bottom, np.array([255, 255, 255]), -1)
+
+        img = np.where(mask==np.array([255, 255, 255]), img, blurred_img)
+
         # label_text = class_names[
         #     label] if class_names is not None else f'cls {label}'
         # if len(bbox) > 4:
