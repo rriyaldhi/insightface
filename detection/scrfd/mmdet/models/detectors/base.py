@@ -418,7 +418,7 @@ def imshow_det_bboxes(img,
         w, h = right_bottom[0] - left_top[0], right_bottom[1] - left_top[1]
         roi = image[y:y+h, x:x+w]
         blur = cv2.GaussianBlur(roi, (51, 51), 0)
-        img[y:y+h, x:x+w] = blur
+        img = blur
         # label_text = class_names[
         #     label] if class_names is not None else f'cls {label}'
         # if len(bbox) > 4:
