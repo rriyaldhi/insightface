@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1aa7f7f-4aae-45d9-93c8-d8776377a534" name="Changes" comment="test imshow_et_bboxes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detection/scrfd/mmdet/models/detectors/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/detection/scrfd/mmdet/models/detectors/base.py" afterDir="false" />
     </list>
     <list id="96c4c9b7-2349-421d-8f26-86e8bc4580a8" name="Changes by rriyaldhi" comment="" />
